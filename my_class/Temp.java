@@ -1,24 +1,33 @@
 package my_class;
 
-// class Group {
-//     private String[] names;
+import java.util.HashMap;
 
-//     public void setNames(String... names) { // 传入的参数会被结构成数组
-//         this.names = names;
-//     }
+public class Temp {
+    public static void main(String[] args) {
+       
+    }
+}
 
-//     public void setNames2(String[] names) {
-//         this.names = names;
-//     }
-// };
 
-// public class Temp {
-//     public static void main(String[] args) {
-//         Group g = new Group();
-//         g.setNames("Xiao Ming", "Xiao Hong", "Xiao Jun"); // 传入["Xiao Ming", "Xiao Hong", "Xiao Jun"]
-//         g.setNames() // 传入[]
+class Outer {
+    private String name;
 
-//         g.setNames2(new String[] {"Xiao Ming", "Xiao Hong", "Xiao Jun"}); // 传入["Xiao Ming", "Xiao Hong", "Xiao Jun"]
-//         g.setNames2(); // 传入null ， 数组参数接收null
-//     }
-// }
+    Outer(String name) {
+        this.name = name;
+    }
+
+    void asyncHello() {
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello, " + Outer.this.name);
+            }
+        };
+        new Thread(r).start();
+    }
+}
+
+
+
+
+
